@@ -6,7 +6,7 @@ import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:todo_app/shared/components/components.dart';
+import 'package:todo_app/shared/components/widgets/custom_text_form_field.dart';
 import 'package:todo_app/shared/cubit/states.dart';
 import '../shared/cubit/cubit.dart';
 
@@ -60,7 +60,6 @@ class HomeLayout extends StatelessWidget {
                     }else{
                       scaffoldKey.currentState?.showBottomSheet((context) =>
                           Container(
-
                             color: Colors.white,
                             padding: const EdgeInsets.all(20.0),
                             child: Form(
@@ -68,9 +67,11 @@ class HomeLayout extends StatelessWidget {
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  defaultTextField(
+                                  CustomTextFormField(
+
                                       controller: titleController,
                                       keyboard: TextInputType.text,
+
                                       validate: (String? value){
                                         if(value!.isEmpty){
                                           return "title must not be empty";
@@ -83,7 +84,7 @@ class HomeLayout extends StatelessWidget {
                                       colorIcon: Colors.teal
                                   ),
                                   const SizedBox(height: 20,),
-                                  defaultTextField(
+                                  CustomTextFormField(
                                       controller: timeController,
                                       keyboard: TextInputType.datetime,
                                       onTap: (){
@@ -107,7 +108,7 @@ class HomeLayout extends StatelessWidget {
                                       colorIcon: Colors.teal
                                   ),
                                   const SizedBox(height: 20,),
-                                  defaultTextField(
+                                  CustomTextFormField(
                                       controller: dateController,
                                       keyboard: TextInputType.datetime,
                                       onTap: () {

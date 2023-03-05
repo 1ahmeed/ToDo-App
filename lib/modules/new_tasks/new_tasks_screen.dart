@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../shared/components/components.dart';
+import '../../shared/components/widgets/build_condition_tasks.dart';
 import '../../shared/cubit/cubit.dart';
 import '../../shared/cubit/states.dart';
 
@@ -18,7 +18,7 @@ class NewTasksScreen extends StatelessWidget {
     var tasks=AppCubit.get(context)!.newTasks;
 
 
-    return buildConditionalBuilder(tasks: tasks);
+    return BuildConditionTask(tasks: tasks);
     });
     }
   }
